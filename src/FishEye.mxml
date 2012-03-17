@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600" xmlns:qs="qs.controls.*"  backgroundColor="#C46262" preloaderChromeColor="#C46262"  creationComplete="application1_creationCompleteHandler(event)">
+	
+	<fx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			import mx.events.FlexEvent;
+			
+			[Bindable] public var currentDP:Array;
+			
+			protected function fisheye_clickHandler(event:MouseEvent):void
+			{
+				// TODO Auto-generated method stub
+				 var selItem:String;
+				if(fisheye.selectedItem==null){
+					
+				}else{
+					if(selItem != fisheye.selectedItem.image.toString()){
+						var str:String=fisheye.selectedItem.image.toString();
+						
+						
+						
+						if(str=="images/medsize/1.png"){
+							
+							Alert.show("selected first image");
+							
+							
+						}else if(str=="images/medsize/2.png"){
+							
+							Alert.show("selected second image");
+							
+						}else if(str=="images/medsize/3.png"){
+							
+							Alert.show("selected third image");
+							
+							
+						}else if(str=="images/medsize/4.png"){
+							
+							Alert.show("selected fourth image");
+							
+						}else if(str=="images/medsize/5.png"){
+						
+							Alert.show("selected fifth image");
+						
+						}else if(str=="images/medsize/6.png"){
+							
+							Alert.show("selected sixth image");
+							
+						}else if(str=="images/medsize/7.png"){
+							
+							Alert.show("selected seventh image");
+							
+						}else if(str=="images/medsize/8.png"){
+							
+							Alert.show("selected eighth image");
+							
+						}else if(str=="images/medsize/9.png"){
+							
+							Alert.show("selected ninth image");
+							
+						}
+						
+						selItem = str;
+					}
+				}
+				
+			}
+
+			protected function application1_creationCompleteHandler(event:FlexEvent):void
+			{
+				// TODO Auto-generated method stub
+				var images:Array = [];
+				
+				images.push({image:"images/medsize/1.png",labels:""});
+				
+				images.push({image:"images/medsize/2.png",labels:""});
+				
+				images.push({image:"images/medsize/3.png",labels:""});
+				
+				images.push({image:"images/medsize/4.png",labels:""});
+				
+				images.push({image:"images/medsize/5.png",labels:""});
+				
+				images.push({image:"images/medsize/6.png",labels:""});
+				
+				images.push({image:"images/medsize/7.png",labels:""});
+				
+				images.push({image:"images/medsize/8.png",labels:""});
+				
+				images.push({image:"images/medsize/9.png"});
+				
+				 currentDP = images;
+				 
+				 fisheye.direction = "horizontal";
+				 fisheye.setStyle("horizontalAlign","center");
+				 fisheye.setStyle("verticalAlign","center");
+				 fisheye.setStyle("defaultSpacing",13);
+				 fisheye.setStyle("defaultScale",0.5);
+				 
+				 fisheye.setStyle("hilightMaxScale",1);
+				 fisheye.setStyle("hilightScaleRadius",1.5);
+				 fisheye.setStyle("hilightScaleSlope",0.5);
+				 fisheye.setStyle("animationSpeed",0.25);
+				 
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<s:HGroup paddingTop="250" paddingLeft="450" >
+		
+		<s:Form x="26" y="3" width="516"   height="80" skinClass="FormSkinClass">
+			
+			<s:layout>
+				<s:HorizontalLayout verticalAlign="top" paddingTop="0"/>
+			</s:layout>
+			<s:HGroup width="100%" paddingLeft="120" paddingTop="1">
+				
+				
+				<qs:Fisheye id="fisheye"    width="100%"  selectionEnabled="true"  buttonMode="true" 
+							click="fisheye_clickHandler(event)" dataProvider="{currentDP}"  
+							defaultValue="normal" horizontalAlign="center" rolloverValue="hilighted" 
+							unselectedValue="normal" selectedValue="selected" stateProperty="currentState">	
+					<qs:itemRenderer>
+						<fx:Component>
+							<qs:BitmapTile borderAlpha.normal="0" borderAlpha.selected="0" borderAlpha.hilighted="0"  >
+								<qs:states>
+									<s:State name="selected" />															
+									<s:State name="hilighted" />
+									<s:State name="normal" />
+								</qs:states>
+							</qs:BitmapTile>
+						</fx:Component>
+					</qs:itemRenderer>
+				</qs:Fisheye>
+			</s:HGroup>
+		</s:Form>
+		
+	</s:HGroup>
+	
+</s:Application>
